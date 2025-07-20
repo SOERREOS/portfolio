@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REOS</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 5rem;
+      font-weight: 700;
+      filter: blur(0px);
+      transition: filter 0.1s ease;
+    }
+
+    .open-btn {
+      margin-top: 20px;
+      padding: 10px 30px;
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .open-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 3rem;
+      }
+      .open-btn {
+        font-size: 1rem;
+        padding: 8px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">REOS</h1>
+  <button class="open-btn" onclick="window.location.href='https://spline.design'">Open</button>
+
+  <script>
+    const title = document.getElementById('title');
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 10;
+      const y = (e.clientY / window.innerHeight - 0.5) * 10;
+      title.style.filter = `blur(${Math.sqrt(x*x + y*y)}px)`;
+    });
+  </script>
+</body>
+</html>
